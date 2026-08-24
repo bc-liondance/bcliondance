@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston College Lion Dance | 波士顿学院舞狮</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Serif+TC:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bcMaroon: '#8a100b',
+                        bcGold: '#b29d6c',
+                        bcGoldHover: '#988457',
+                        darkRed: '#5a0b0b',
+                        bcCream: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        chinese: ['Noto Serif TC', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(90, 11, 11, 0.85) 0%, rgba(138, 16, 11, 0.92) 100%);
+        }
+        @keyframes bounceSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        .animate-bounce-slow {
+            animation: bounceSlow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-bcCream text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-bcMaroon text-white shadow-xl border-b-2 border-bcGold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo and Updated Title Header -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <img src="BCLD_Logo.jpg" alt="Boston College Lion Dance Logo" class="w-12 h-12 rounded-full border-2 border-bcGold object-cover shadow-md transition-transform group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/100x100/8a100b/b29d6c?text=BCLD';">
+                    <div class="flex flex-col">
+                        <span class="font-heading font-bold text-lg sm:text-xl md:text-2xl tracking-wider text-white leading-none">BOSTON COLLEGE LION DANCE</span>
+                        <span class="font-chinese text-xs text-bcGold tracking-widest mt-1 opacity-90">波士顿学院舞狮</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Nav (NEU Format Navigation) -->
+                <div class="hidden lg:flex items-center space-x-6 font-semibold text-sm tracking-wide">
+                    <a href="#about" class="hover:text-bcGold transition-colors py-2">About</a>
+                    <a href="#team" onclick="openTeamModal()" class="hover:text-bcGold transition-colors py-2">Our Team</a>
+                    <a href="#gallery" class="hover:text-bcGold transition-colors py-2">Gallery</a>
+                    <a href="#booking" class="hover:text-bcGold transition-colors py-2">Book Us</a>
+                    <a href="#calendar" class="hover:text-bcGold transition-colors py-2">Calendar</a>
+                    <a href="#join" class="bg-bcGold text-bcMaroon px-5 py-2.5 rounded-full font-bold hover:bg-white hover:text-bcMaroon transition-all shadow-md">Join Us</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="lg:hidden text-2xl text-bcGold focus:outline-none p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-darkRed border-t border-bcMaroon px-6 pt-3 pb-6 space-y-3 font-medium text-base">
+            <a href="#about" class="block py-2 text-white hover:text-bcGold border-b border-white/10">About Us</a>
+            <a href="#team" onclick="openTeamModal()" class="block py-2 text-white hover:text-bcGold border-b border-white/10">Our Team</a>
+            <a href="#gallery" class="block py-2 text-white hover:text-bcGold border-b border-white/10">Performances & Gallery</a>
+            <a href="#booking" class="block py-2 text-white hover:text-bcGold border-b border-white/10">Book a Performance</a>
+            <a href="#calendar" class="block py-2 text-white hover:text-bcGold border-b border-white/10">Practices & Calendar</a>
+            <a href="#join" class="block text-center bg-bcGold text-bcMaroon py-3 rounded-xl font-bold mt-2">Join Our Team</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section (NEU Style Splash Layout) -->
+    <header id="home" class="relative bg-bcMaroon text-white min-h-[85vh] flex items-center justify-center border-b-4 border-bcGold overflow-hidden">
+        <!-- Pattern background fallback overlay -->
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b29d6c_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+        
+        <div class="hero-overlay absolute inset-0"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
+            <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 leading-tight">
+                BOSTON COLLEGE <br class="hidden sm:inline"><span class="text-bcGold">LION DANCE</span>
+            </h1>
+            
+            <p class="font-chinese text-2xl sm:text-3xl text-bcGold tracking-widest mb-8 font-semibold">
+                波士顿学院舞狮团
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#booking" class="w-full sm:w-auto bg-bcGold text-bcMaroon px-8 py-4 rounded-full font-bold text-base hover:bg-white transition-all shadow-xl hover:scale-105 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i> Book a Performance
+                </a>
+                <a href="#about" class="w-full sm:w-auto bg-bcGold text-bcMaroon px-8 py-4 rounded-full font-bold text-base hover:bg-white transition-all shadow-xl hover:scale-105 flex items-center justify-center gap-2">
+                    Learn About Us
+                </a>
+            </div>
+
+            <!-- Down Arrow Scroll Indicator -->
+            <div class="mt-16 animate-bounce-slow">
+                <a href="#about" aria-label="Scroll to About Section" class="text-bcGold hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6">
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mb-6">About Us</h2>
+                    
+                    <p class="text-gray-700 mb-4 leading-relaxed text-base sm:text-lg">
+                        Boston College Lion Dance was founded in 2025 by a group of driven college students seeking to collaborate with like-minded individuals who are passionate about spreading the Asian performance art of Lion Dance.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed text-base sm:text-lg">
+                        We serve to spread the traditional culture of Lion Dance to the BC and surrounding Boston/Newton community, with the goal of providing an inclusive and team-oriented environment through performing arts.
+                    </p>
+                </div>
+
+                <!-- Primary Main Showcase Image Slot -->
+                <div class="lg:col-span-6">
+                    <div class="relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-bcGold bg-darkRed group">
+                        <div class="w-full h-[400px] sm:h-[500px] lg:h-[550px] relative overflow-hidden">
+                            <img src="Main_Photo.jpg" alt="Boston College Lion Dance Primary Featured Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='https://placehold.co/1200x800/8a100b/b29d6c?text=Upload+Your+Primary+Main+Photo+(Main_Photo.jpg)';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 sm:p-8">
+                                <div class="text-white">
+                                    <span class="text-bcGold text-xs font-bold uppercase tracking-widest block mb-1">Boston College Lion Dance</span>
+                                    <p class="text-sm sm:text-base font-semibold text-white">Spreading traditional culture & performance art</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Preview Section (Main Page Box) -->
+    <section id="team" class="py-20 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- "Our Team" Interactive Preview Box -->
+            <div onclick="openTeamModal()" class="cursor-pointer max-w-4xl mx-auto bg-gradient-to-r from-bcMaroon via-darkRed to-black text-white rounded-3xl p-6 sm:p-10 shadow-2xl border-2 border-bcGold hover:scale-[1.01] transition-all group relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-bcGold text-9xl pointer-events-none">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                
+                <div class="relative z-10 flex flex-col gap-6">
+                    <!-- Section Header -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-bcCream/10 border border-bcGold flex items-center justify-center text-bcGold text-xl shrink-0 group-hover:bg-bcGold group-hover:text-bcMaroon transition-all">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-4xl font-bold text-white group-hover:text-bcGold transition-colors">Meet Our Team</h3>
+                    </div>
+
+                    <!-- Team Picture Image Slot -->
+                    <div class="w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-bcGold/60 bg-black/40 relative shadow-inner">
+                        <!-- Replace Team_Photo.jpg with your team photo file path or URL -->
+                        <img src="Team_Photo.jpg" alt="Boston College Lion Dance Team Picture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/8a100b/b29d6c?text=Upload+Your+Team+Photo+Here+(Team_Photo.jpg)';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 sm:p-6">
+                            <span class="text-xs sm:text-sm text-bcGold font-medium bg-black/60 px-3 py-1.5 rounded-full border border-bcGold/40 backdrop-blur-sm">
+                                <i class="fa-solid fa-camera mr-1.5"></i> Boston College Lion Dance Members & Leadership
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Action Button -->
+                    <div class="flex justify-end pt-2">
+                        <button class="w-full sm:w-auto bg-bcGold text-bcMaroon font-bold px-8 py-3.5 rounded-full shadow-lg group-hover:bg-white group-hover:text-bcMaroon transition-all flex items-center justify-center gap-3 text-base">
+                            <span>View Executive Board</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Full Team Modal Page -->
+    <div id="team-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden overflow-y-auto transition-opacity duration-300">
+        <div class="min-h-screen px-4 sm:px-6 lg:px-8 py-10 flex items-center justify-center">
+            <div class="bg-white w-full max-w-6xl rounded-3xl shadow-2xl border-2 border-bcGold overflow-hidden relative my-6">
+                <!-- Modal Navigation Bar -->
+                <div class="bg-bcMaroon text-white p-6 sm:p-8 border-b-2 border-bcGold flex justify-between items-center">
+                    <div>
+                        <span class="text-bcGold text-xs font-bold uppercase tracking-widest">Boston College Lion Dance</span>
+                        <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-1">Our Team</h2>
+                    </div>
+                    <button onclick="closeTeamModal()" class="w-12 h-12 rounded-full bg-white/10 hover:bg-bcGold hover:text-bcMaroon text-white flex items-center justify-center text-xl transition-all" aria-label="Close Team Modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="p-6 sm:p-10 bg-gray-50">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Executive Board</h3>
+                    </div>
+
+                    <!-- E-Board Cards Grid (6 Spots) -->
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Spot 1: Co-President -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-user-ninja"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Chelsea Boruff</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Co-President</span>
+                            <p class="text-gray-500 text-xs">Boston College '28</p>
+                        </div>
+
+                        <!-- Spot 2: Co-President -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-user-ninja"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Aidan Kyi</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Co-President</span>
+                            <p class="text-gray-500 text-xs">Boston College '28</p>
+                        </div>
+
+                        <!-- Spot 3: Vice President -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-user-ninja"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Azriel Taguiam</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Vice President</span>
+                            <p class="text-gray-500 text-xs">Boston College '28</p>
+                        </div>
+
+                        <!-- Spot 4: Head of Creative -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-paint-brush"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Amber Le</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Head of Creative</span>
+                            <p class="text-gray-500 text-xs">Boston College '27</p>
+                        </div>
+
+                        <!-- Spot 5: Secretary -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Aidan Le</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Secretary</span>
+                            <p class="text-gray-500 text-xs">Boston College '29</p>
+                        </div>
+
+                        <!-- Spot 6: Treasurer -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Noah Yang</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Treasurer</span>
+                            <p class="text-gray-500 text-xs">Boston College '28</p>
+                        </div>
+                    </div>
+
+                    <!-- Graduated Board Members Section -->
+                    <div class="text-center max-w-2xl mx-auto mt-16 mb-10">
+                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Graduated Board Members</h3>
+                    </div>
+
+                    <!-- Graduated Board Members Grid (3 Spots) -->
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Spot 1: Erik Gee -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Erik Gee</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Co-Founder, Co-President</span>
+                            <p class="text-gray-500 text-xs">Boston College '26</p>
+                        </div>
+
+                        <!-- Spot 2: Christy Chen -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Christy Chen</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Co-Founder, Co-President</span>
+                            <p class="text-gray-500 text-xs">Boston College '26</p>
+                        </div>
+
+                        <!-- Spot 3: Brandon Li -->
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all p-6 text-center group">
+                            <div class="w-28 h-28 mx-auto rounded-2xl bg-bcCream border-2 border-bcGold flex items-center justify-center text-bcMaroon text-4xl mb-4 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900">Brandon Li</h4>
+                            <span class="inline-block px-3 py-1 bg-bcMaroon/10 text-bcMaroon font-semibold text-xs rounded-full my-2">Treasurer</span>
+                            <p class="text-gray-500 text-xs">Boston College '26</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <button onclick="closeTeamModal()" class="bg-bcMaroon text-white font-bold px-8 py-3.5 rounded-full hover:bg-darkRed transition-colors border border-bcGold shadow-lg inline-flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i> Close & Return to Main Page
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performances & Gallery Section -->
+    <section id="gallery" class="py-20 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-bcMaroon font-bold uppercase tracking-widest text-xs sm:text-sm">Performance Archive</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Recent Highlights & Gallery</h2>
+            </div>
+
+            <!-- Gallery Cards Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Highlight 1 -->
+                <div class="bg-bcCream rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center relative">
+                        <img src="BCLD_Logo.jpg" alt="Lunar New Year Showcase" class="w-full h-full object-contain p-4 bg-bcMaroon/5" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=Performance+Photo';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-900">Lunar New Year Cultural Celebration</h3>
+                    </div>
+                </div>
+
+                <!-- Highlight 2 -->
+                <div class="bg-bcCream rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center relative">
+                        <img src="BCLD_Logo.jpg" alt="Culture Show Performance" class="w-full h-full object-contain p-4 bg-bcMaroon/5" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=Performance+Photo';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-900">Boston Intercollegiate Culture Night</h3>
+                    </div>
+                </div>
+
+                <!-- Highlight 3 -->
+                <div class="bg-bcCream rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center relative">
+                        <img src="BCLD_Logo.jpg" alt="Community Festival" class="w-full h-full object-contain p-4 bg-bcMaroon/5" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=Performance+Photo';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-gray-900">Community Festival & Blessings</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Our Gallery Button -->
+            <div class="mt-12 text-center">
+                <button onclick="openGalleryModal()" class="bg-bcMaroon text-white font-bold px-8 py-3.5 rounded-full hover:bg-darkRed transition-all border border-bcGold shadow-lg inline-flex items-center gap-3 text-base group">
+                    <span>View Our Gallery</span>
+                    <i class="fa-solid fa-play group-hover:scale-110 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Full Video Gallery Modal Page -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden overflow-y-auto transition-opacity duration-300">
+        <div class="min-h-screen px-4 sm:px-6 lg:px-8 py-10 flex items-center justify-center">
+            <div class="bg-white w-full max-w-6xl rounded-3xl shadow-2xl border-2 border-bcGold overflow-hidden relative my-6">
+                <!-- Modal Navigation Bar -->
+                <div class="bg-bcMaroon text-white p-6 sm:p-8 border-b-2 border-bcGold flex justify-between items-center">
+                    <div>
+                        <span class="text-bcGold text-xs font-bold uppercase tracking-widest">Boston College Lion Dance</span>
+                        <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-1">Gallery</h2>
+                    </div>
+                    <button onclick="closeGalleryModal()" class="w-12 h-12 rounded-full bg-white/10 hover:bg-bcGold hover:text-bcMaroon text-white flex items-center justify-center text-xl transition-all" aria-label="Close Gallery Modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Gallery Content -->
+                <div class="p-6 sm:p-10 bg-gray-50">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Video Gallery</h3>
+                        <p class="text-gray-600 text-sm mt-2">Watch some of our past performances below!</p>
+                    </div>
+
+                    <!-- 2025-2026 Academic Year Section -->
+                    <div class="mb-12">
+                        <div class="flex items-center gap-3 mb-6 border-b-2 border-bcGold/40 pb-3">
+                            <span class="w-8 h-8 rounded-full bg-bcMaroon text-bcGold flex items-center justify-center text-sm font-bold shadow-md">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </span>
+                            <h4 class="font-heading text-xl sm:text-2xl font-bold text-bcMaroon">2025–2026 Performances</h4>
+                        </div>
+
+                        <!-- 2025-2026 Video Grid -->
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Video Card 1 -->
+                            <a href="https://youtu.be/farES6uVzEA?si=3pRffoakUndsmSZ2" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/farES6uVzEA/hqdefault.jpg" alt="JCBC 2025 Culture Show" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=JCBC+2025+Culture+Show';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">JCBC 2025 Culture Show</h5>
+                                </div>
+                            </a>
+
+                            <!-- Video Card 2 -->
+                            <a href="https://youtu.be/PYvT7sQ_NmU?si=sC-IYRlkQtp2GkCa" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/PYvT7sQ_NmU/hqdefault.jpg" alt="BCLD 2025 First Gen Performance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=BCLD+2025+First+Gen+Performance';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">BCLD 2025 First Gen Performance</h5>
+                                </div>
+                            </a>
+
+                            <!-- Video Card 3 -->
+                            <a href="https://youtu.be/iILve2IQJc0?si=nsvMYkaNkT9ChERi" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/iILve2IQJc0/hqdefault.jpg" alt="CSA/KSA 2026 Culture Show (Act 1)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=CSA/KSA+2026+Culture+Show+(Act+1)';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">CSA/KSA 2026 Culture Show (Act 1)</h5>
+                                </div>
+                            </a>
+
+                            <!-- Video Card 4 -->
+                            <a href="https://youtu.be/xIvQTrtKlQ4?si=S4AsA8w319u83U-L" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/xIvQTrtKlQ4/hqdefault.jpg" alt="CSA/KSA 2026 Culture Show (Act 2)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=CSA/KSA+2026+Culture+Show+(Act+2)';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">CSA/KSA 2026 Culture Show (Act 2)</h5>
+                                </div>
+                            </a>
+
+                            <!-- Video Card 5 -->
+                            <a href="https://youtu.be/g2nF82p3D2E?si=NDZ0XeD47yXRd4II" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/g2nF82p3D2E/hqdefault.jpg" alt="VSA/SEASA 2026 Culture Show" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=VSA/SEASA+2026+Culture+Show';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">VSA/SEASA 2026 Culture Show</h5>
+                                </div>
+                            </a>
+
+                            <!-- Video Card 6 -->
+                            <a href="https://youtu.be/hFRcIJ5pimw?si=gzPeI2YXKOFWSLSH" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/hFRcIJ5pimw/hqdefault.jpg" alt="Arts Fest 2026 Culture Showcase Performance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=Arts+Fest+2026+Culture+Showcase+Performance';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">Arts Fest 2026 Culture Showcase Performance</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2024-2025 Academic Year Section -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 border-b-2 border-bcGold/40 pb-3">
+                            <span class="w-8 h-8 rounded-full bg-bcMaroon text-bcGold flex items-center justify-center text-sm font-bold shadow-md">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </span>
+                            <h4 class="font-heading text-xl sm:text-2xl font-bold text-bcMaroon">2024–2025 Performances</h4>
+                        </div>
+
+                        <!-- 2024-2025 Video Grid -->
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Video Card 1 -->
+                            <a href="https://youtu.be/C-cO518k9_Q?si=cB_tduftR7gNjwDa" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/C-cO518k9_Q/hqdefault.jpg" alt="VSA/SEASA 2025 Culture Show (Act 1)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=VSA/SEASA+2025+Culture+Show+(Act+1)';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">VSA/SEASA 2025 Culture Show (Act 1)</h5>
+                                </div>
+                            </a>
+
+                            <!-- Video Card 2 -->
+                            <a href="https://youtu.be/cbw1tBA51FQ?si=8Iz5kZO0zzUdVQ90" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 block">
+                                <div class="relative h-48 bg-black overflow-hidden flex items-center justify-center">
+                                    <img src="https://img.youtube.com/vi/cbw1tBA51FQ/hqdefault.jpg" alt="VSA/SEASA 2025 Culture Show (Act 2)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a100b/b29d6c?text=VSA/SEASA+2025+Culture+Show+(Act+2)';">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                        <i class="fa-brands fa-youtube text-red-500 mr-1"></i> YouTube
+                                    </span>
+                                </div>
+                                <div class="p-5">
+                                    <h5 class="font-bold text-gray-900 text-base group-hover:text-bcMaroon transition-colors">VSA/SEASA 2025 Culture Show (Act 2)</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <button onclick="closeGalleryModal()" class="bg-bcMaroon text-white font-bold px-8 py-3.5 rounded-full hover:bg-darkRed transition-colors border border-bcGold shadow-lg inline-flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i> Close & Return to Main Page
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book a Performance Section (NEU Logistics Layout) -->
+    <section id="booking" class="py-20 bg-gradient-to-br from-bcMaroon via-darkRed to-black text-white border-b-4 border-bcGold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7">
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold mb-6 leading-tight">Book a Performance for Your Event</h2>
+
+                    <p class="text-gray-200 text-base sm:text-lg mb-8 leading-relaxed">
+                        If you are looking to book us, please fill out the booking request form linked below! After reviewing your request, we will get back to you with our availability and discuss additional details and logistics.
+                    </p>
+
+                    <!-- Booking Form Button -->
+                    <div>
+                        <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-bcGold text-bcMaroon px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-bcMaroon transition-all shadow-2xl gap-3">
+                            <i class="fa-solid fa-paper-plane"></i> Fill Out Booking Request Form
+                        </a>
+                        <p class="text-xs text-gray-300 mt-2">Links directly to our official Google Request Form.</p>
+                    </div>
+                </div>
+
+                <!-- Contact & Questions Box -->
+                <div class="lg:col-span-5 bg-white text-gray-900 rounded-2xl p-8 shadow-2xl border-2 border-bcGold">
+                    <h3 class="font-heading text-2xl font-bold text-bcMaroon mb-2">Have Questions?</h3>
+                    <p class="text-xs text-gray-600 mb-6">Reach out to us directly for custom inquiries or scheduling.</p>
+
+                    <div class="space-y-5">
+                        <a href="mailto:bcliondance@gmail.com" class="flex items-center gap-4 p-3 rounded-xl bg-bcCream hover:bg-bcGold/20 transition-colors border border-gray-200">
+                            <div class="w-10 h-10 rounded-full bg-bcMaroon text-bcGold flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-500 uppercase font-bold">Email Us</span>
+                                <span class="text-sm font-semibold text-gray-900">bcliondance@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Practices & Google Calendar Section -->
+    <section id="calendar" class="py-20 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-bcMaroon font-bold uppercase tracking-widest text-xs sm:text-sm">Stay Up To Date</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Our Calendar</h2>
+            </div>
+
+            <!-- Calendar Container -->
+            <div class="bg-bcCream rounded-2xl p-4 sm:p-6 border border-gray-300 shadow-inner">
+                <div class="w-full min-h-[500px] rounded-xl overflow-hidden bg-white shadow-md border border-gray-200">
+                    <iframe 
+                        src="https://calendar.google.com/calendar/embed?src=d95cb019365fc599bd180d2543e1c8f3d6c47f179c21445807cd8412b17af608%40group.calendar.google.com&ctz=America%2FNew_York" 
+                        style="border: 0" 
+                        width="100%" 
+                        height="550" 
+                        frameborder="0" 
+                        scrolling="no"
+                        title="Boston College Lion Dance Calendar">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section (NEU Banner Format) -->
+    <section id="join" class="py-16 bg-bcMaroon text-white border-b border-bcGold">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-bcGold font-bold uppercase tracking-widest text-xs">Recruitment</span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-2 mb-4">JOIN OUR TEAM!</h2>
+            <p class="text-gray-200 max-w-2xl mx-auto text-sm sm:text-base mb-8">
+                All Boston College students are welcome to join, no experience necessary!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:bcliondance@gmail.com" class="border-2 border-bcGold text-bcGold px-8 py-3.5 rounded-full font-semibold text-base hover:bg-bcGold hover:text-bcMaroon transition-all">
+                    Email bcliondance@gmail.com To Join
+                </a>
+                <a href="https://www.instagram.com/bcliondance?igsi=ZXJqZjMyaW1laDd1" target="_blank" rel="noopener noreferrer" class="border-2 border-bcGold text-bcGold px-8 py-3.5 rounded-full font-semibold text-base hover:bg-bcGold hover:text-bcMaroon transition-all">
+                    Message Us On Instagram
+                </a>
+                <a href="https://bc.campuslabs.com/engage/organization/bcliondance" target="_blank" rel="noopener noreferrer" class="border-2 border-bcGold text-bcGold px-8 py-3.5 rounded-full font-semibold text-base hover:bg-bcGold hover:text-bcMaroon transition-all">
+                    Join on MyBC
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-neutral-800 pb-8 mb-8 text-center md:text-left">
+                
+                <div class="flex items-center gap-3">
+                    <img src="BCLD_Logo.jpg" alt="BC Lion Dance" class="w-10 h-10 rounded-full border border-bcGold object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/8a100b/b29d6c?text=BCLD';">
+                    <div>
+                        <span class="font-heading font-bold text-white text-lg block leading-none">BOSTON COLLEGE LION DANCE</span>
+                        <span class="font-chinese text-xs text-bcGold">波士顿学院舞狮</span>
+                    </div>
+                </div>
+
+                <!-- Footer Quick Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="#about" class="hover:text-bcGold transition-colors">About</a>
+                    <a href="#team" class="hover:text-bcGold transition-colors">Team</a>
+                    <a href="#gallery" class="hover:text-bcGold transition-colors">Gallery</a>
+                    <a href="#booking" class="hover:text-bcGold transition-colors">Book Us</a>
+                    <a href="#calendar" class="hover:text-bcGold transition-colors">Calendar</a>
+                </div>
+
+                <!-- Footer Social Icons -->
+                <div class="flex items-center space-x-4 text-xl">
+                    <a href="https://www.instagram.com/bcliondance?igsi=ZXJqZjMyaW1laDd1" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-bcGold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/@bcliondance?si=H9Yd7Cd2oqE5JS2E" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-bcGold transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="mailto:bcliondance@gmail.com" aria-label="Email" class="hover:text-bcGold transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#home" aria-label="Back to Top" class="hover:text-bcGold transition-colors"><i class="fa-solid fa-arrow-up"></i></a>
+                </div>
+
+            </div>
+
+            <div class="text-center text-xs text-gray-500">
+                <p>&copy; 2026 Boston College Lion Dance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Modal triggers for Team page
+        function openTeamModal() {
+            document.getElementById('team-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeTeamModal() {
+            document.getElementById('team-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Modal triggers for Gallery page
+        function openGalleryModal() {
+            document.getElementById('gallery-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+    </script>
+</body>
+</html>
